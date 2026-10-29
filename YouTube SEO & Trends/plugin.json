@@ -1,0 +1,21 @@
+{
+  "name": "youtube-seo-with-antigravity",
+  "version": "1.0.0",
+  "description": "YouTube SEO, Channel Strategy, Viral Trend Hunter, and Automated Publishing Suite for Google Antigravity & NexusFlow",
+  "main": "cli.js",
+  "skills": [
+    {
+      "name": "youtube-seo",
+      "path": "skills/youtube-seo/SKILL.md",
+      "description": "Master YouTube SEO, Channel Management, Viral Trend Discovery, and Automated Studio Publishing"
+    }
+  ],
+  "mcpServers": {
+    "youtube-seo": {
+      "command": "node",
+      "args": [
+        "c:\\Users\\Arsalan\\Desktop\\Virutal Server\\NexusFlow\\YouTube SEO & Trends\\mcp\\server.js"
+      ]
+    }
+  }
+}

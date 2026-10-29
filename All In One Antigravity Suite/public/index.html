@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusFlow & Antigravity Master Suite — GUI Log Auditor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Bar -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="pulse-ring">
+          <div class="pulse-dot"></div>
+        </div>
+        <div>
+          <h1>ANTIGRAVITY <span>MASTER SUITE</span></h1>
+          <p class="subtitle">NexusFlow Autonomous YouTube Studio & Pipeline Log Auditor</p>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <div class="badge badge-target">
+          <span class="label">UPLOAD TARGET</span>
+          <span class="val" id="uploader-target-val">astravoidxecho@gmail.com</span>
+        </div>
+        <div class="badge badge-backup">
+          <span class="label">BACKUP / STATUS</span>
+          <span class="val" id="backup-target-val">amazingarsl@gmail.com</span>
+        </div>
+        <div class="badge badge-active" id="active-account-badge">
+          <span class="label">ACTIVE FLOW ACCOUNT</span>
+          <span class="val" id="active-account-val">astravoidxecho@gmail.com</span>
+          <span class="credits-pill" id="active-credits-val">56 Credits</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="main-layout">
+      <!-- Left Column: Controls & Account Pool -->
+      <section class="left-col">
+        <!-- Quick Action Deck -->
+        <div class="card action-deck">
+          <div class="card-header">
+            <h2>⚡ PIPELINE CONTROL DECK</h2>
+            <span class="stage-tag" id="pipeline-stage-tag">IDLE</span>
+          </div>
+
+          <div class="button-grid">
+            <button class="btn btn-primary" id="btn-run-full">
+              <span class="btn-icon">🚀</span>
+              <div class="btn-text">
+                <strong>Run Full Autonomous Pipeline</strong>
+                <small>Prompt → Flow → Merge → SEO → Queue</small>
+              </div>
+            </button>
+
+            <button class="btn btn-secondary" id="btn-auto-shift">
+              <span class="btn-icon">🔄</span>
+              <div class="btn-text">
+                <strong>Auto-Shift Account (< 10)</strong>
+                <small>Audit pool & switch active if low</small>
+              </div>
+            </button>
+
+            <button class="btn btn-outline" id="btn-gen-prompts">
+              <span class="btn-icon">📝</span>
+              <div class="btn-text">
+                <strong>Generate Consistent Prompts</strong>
+                <small>Marrow 3-Scene 9:16 Alexandria Vault</small>
+              </div>
+            </button>
+
+            <button class="btn btn-outline" id="btn-merge-clips">
+              <span class="btn-icon">🎞️</span>
+              <div class="btn-text">
+                <strong>Lossless FFmpeg Merge</strong>
+                <small>Output/ → Combined_Video_Full.mp4</small>
+              </div>
+            </button>
+
+            <button class="btn btn-outline" id="btn-queue-upload">
+              <span class="btn-icon">📤</span>
+              <div class="btn-text">
+                <strong>Queue YouTube Shorts</strong>
+                <small>Inject viral SEO & tags to Uploader</small>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- 6 Accounts Matrix -->
+        <div class="card account-matrix-card">
+          <div class="card-header">
+            <h2>👥 GOOGLE ACCOUNT POOL & AUTO-SWITCH</h2>
+            <span class="sub-tag">Threshold: &lt; 10 Credits</span>
+          </div>
+          <div class="account-list" id="account-list-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Pipeline Overview Stats -->
+        <div class="card stats-card">
+          <div class="card-header">
+            <h2>📊 ECOSYSTEM INVENTORY</h2>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-item">
+              <span class="stat-num" id="stat-prompts-count">3</span>
+              <span class="stat-lbl">Active Scenes</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" id="stat-output-count">0</span>
+              <span class="stat-lbl">Output Clips</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" id="stat-result-count">1</span>
+              <span class="stat-lbl">Merged Videos</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" id="stat-queue-count">1</span>
+              <span class="stat-lbl">Queued Uploads</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Live GUI Log Auditor -->
+      <section class="right-col">
+        <div class="card terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-title">
+              <span class="live-dot"></span>
+              <h2>LIVE AUDITOR TERMINAL & STEPS PERFORMED</h2>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-bar">
+              <button class="filter-btn active" data-level="ALL">ALL</button>
+              <button class="filter-btn" data-level="STEP">STEPS</button>
+              <button class="filter-btn" data-level="FLOW">FLOW</button>
+              <button class="filter-btn" data-level="UPLOAD">UPLOAD</button>
+              <button class="filter-btn" data-level="MCP">MCP</button>
+              <button class="filter-btn" data-level="WARN">WARNS</button>
+              <button class="filter-btn" data-level="SUCCESS">SUCCESS</button>
+            </div>
+
+            <div class="terminal-actions">
+              <label class="autoscroll-label">
+                <input type="checkbox" id="chk-autoscroll" checked> Auto-Scroll
+              </label>
+              <button class="btn-tiny" id="btn-clear-logs">Clear</button>
+            </div>
+          </div>
+
+          <!-- Terminal Logs Stream -->
+          <div class="terminal-body" id="terminal-logs-body">
+            <div class="log-entry log-STEP">
+              <span class="log-time">[Init]</span>
+              <span class="log-level">[STEP]</span>
+              <span class="log-sub">[AUDITOR]</span>
+              <span class="log-msg">Antigravity Master Suite GUI Auditor initialized. Connecting live stream...</span>
+            </div>
+          </div>
+
+          <!-- Terminal Footer Status -->
+          <div class="terminal-footer">
+            <span class="conn-status" id="stream-status">● Live Stream Connected (SSE)</span>
+            <span class="log-count" id="log-count-val">0 entries</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

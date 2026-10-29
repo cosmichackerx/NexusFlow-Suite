@@ -1,0 +1,33 @@
+const { contextBridge, ipcRenderer } = require('electron');
+
+contextBridge.exposeInMainWorld('api', {
+  onLog: (callback) => ipcRenderer.on('log-message', (_event, value) => callback(value)),
+  onStatusChange: (callback) => ipcRenderer.on('status-change', (_event, value) => callback(value)),
+  onPromptLoaded: (callback) => ipcRenderer.on('prompt-loaded', (_event, value) => callback(value)),
+  onPromptStatsUpdated: (callback) => ipcRenderer.on('prompt-stats-updated', (_event, value) => callback(value)),
+  getPromptStats: () => ipcRenderer.invoke('get-prompt-stats'),
+  onCreditsUpdated: (callback) => ipcRenderer.on('credits-updated', (_event, value) => callback(value)),
+  onUserEmail: (callback) => ipcRenderer.on('user-email', (_event, value) => callback(value)),
+  fetchCreditsOnLoad: () => ipcRenderer.invoke('fetch-credits-on-load'),
+  startAutomation: (credits, cooldown, configOptions) => ipcRenderer.invoke('start-automation', credits, cooldown, configOptions),
+  openLogin: () => ipcRenderer.invoke('open-login'),
+  minimizeWindow: () => ipcRenderer.invoke('minimize-window'),
+  maximizeWindow: () => ipcRenderer.invoke('maximize-window'),
+  closeWindow: () => ipcRenderer.invoke('close-window'),
+  restartApp: () => ipcRenderer.invoke('restart-app'),
+  copyToClipboard: (text) => ipcRenderer.invoke('copy-to-clipboard', text),
+  getPaths: () => ipcRenderer.invoke('get-paths'),
+  updatePaths: (promptFile, outputDir, resultDir, framesDir) => ipcRenderer.invoke('update-paths', promptFile, outputDir, resultDir, framesDir),
+  updateCooldown: (cooldown) => ipcRenderer.invoke('update-cooldown', cooldown),
+  selectFile: () => ipcRenderer.invoke('select-file'),
+  selectFolder: () => ipcRenderer.invoke('select-folder'),
+  refreshSync: () => ipcRenderer.invoke('refresh-sync'),
+  savePrompt: (content) => ipcRenderer.invoke('save-prompt', content),
+  openFile: (filePath) => ipcRenderer.invoke('open-file', filePath),
+  onAccountsUpdated: (callback) => ipcRenderer.on('accounts-updated', (_event, value) => callback(value)),
+  getAccounts: () => ipcRenderer.invoke('get-accounts'),
+  switchAccount: (email) => ipcRenderer.invoke('switch-account', email),
+  toggleAutoSwitch: (enabled) => ipcRenderer.invoke('toggle-auto-switch', enabled),
+  syncAccount: (email) => ipcRenderer.invoke('sync-account', email),
+  addAccount: () => ipcRenderer.invoke('add-account')
+});

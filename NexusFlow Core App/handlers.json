@@ -1,0 +1,87 @@
+{
+  "handlers": [
+    {
+      "name": "Dismiss generic overlays (Escape)",
+      "triggerContexts": [
+        "prompt_focus",
+        "gallery_overlay",
+        "unknown_error"
+      ],
+      "action": "press_key",
+      "key": "Escape"
+    },
+    {
+      "name": "Dismiss gallery or modal (Background Click)",
+      "triggerContexts": [
+        "prompt_focus",
+        "gallery_overlay"
+      ],
+      "action": "click_coordinates",
+      "x_expr": "viewport.width - 10",
+      "y_expr": "viewport.height / 2"
+    },
+    {
+      "name": "Approve Credit Usage Dialog",
+      "triggerContexts": [
+        "video_render_wait",
+        "approve_dialog"
+      ],
+      "action": "evaluate_js",
+      "script": "(function() { let candidates = Array.from(document.querySelectorAll('*')).filter(el => { let t = (el.textContent || '').trim(); return (t.includes('Approve, do not ask again') || t === 'Approve') && t.length < 50; }); candidates.sort((a, b) => a.children.length - b.children.length); if (candidates.length > 0) { let best = candidates.find(el => (el.textContent || '').includes('do not ask again')) || candidates[0]; best.click(); return true; } return false; })();"
+    },
+    {
+      "name": "Dismiss unexpected Welcome Modal",
+      "triggerContexts": [
+        "prompt_focus",
+        "welcome_modal"
+      ],
+      "action": "click_selector",
+      "selector": "button[aria-label='Close'], button:has-text('Got it'), button:has-text('Dismiss')",
+      "force": true
+    },
+    {
+      "name": "Dismiss Low Credits Warning Banner",
+      "triggerContexts": [
+        "prompt_focus",
+        "video_render_wait",
+        "video_download",
+        "video_download_obstacle",
+        "gallery_overlay"
+      ],
+      "action": "evaluate_js",
+      "script": "(function() { const all = Array.from(document.querySelectorAll('*')); const banner = all.find(el => (el.textContent || '').includes('running low on Google Flow credits') && el.children.length > 0); if (banner) { const btns = Array.from(banner.querySelectorAll('button, [role=\"button\"]')); if (btns.length > 0) { const closeBtn = btns.find(b => { const text = (b.textContent || '').trim(); const aria = (b.getAttribute('aria-label') || '').toLowerCase(); return text === '✕' || text === 'X' || text === 'x' || aria.includes('close') || aria.includes('dismiss'); }) || btns[btns.length - 1]; if (closeBtn) { closeBtn.click(); return true; } } } return false; })()"
+    },
+    {
+      "name": "Open Video 3-Dots Menu",
+      "triggerContexts": [
+        "video_download",
+        "download_menu",
+        "video_menu_open"
+      ],
+      "action": "evaluate_js",
+      "script": "(function() { const videos = Array.from(document.querySelectorAll('video')); if (videos.length === 0) return false; const lastVideo = videos[videos.length - 1]; let el = lastVideo; for (let depth = 0; depth < 6 && el && el !== document.body; depth++) { ['pointerover', 'pointerenter', 'mouseover', 'mouseenter', 'mousemove'].forEach(evName => { try { el.dispatchEvent(new MouseEvent(evName, { bubbles: true, cancelable: true, view: window })); if (window.PointerEvent) { el.dispatchEvent(new PointerEvent(evName, { bubbles: true, cancelable: true, view: window, pointerType: 'mouse' })); } } catch(e) {} }); el = el.parentElement; } el = lastVideo.parentElement; for (let depth = 0; depth < 6 && el && el !== document.body; depth++) { const buttons = Array.from(el.querySelectorAll('button, [role=\"button\"]')); const moreBtn = buttons.find(b => { const l = (b.getAttribute('aria-label') || b.getAttribute('title') || '').toLowerCase(); return l.includes('more') || l.includes('option'); }) || (buttons.length >= 2 ? buttons[buttons.length - 1] : null); if (moreBtn) { moreBtn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, view: window })); moreBtn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true, view: window })); moreBtn.click(); return true; } el = el.parentElement; } return false; })()"
+    },
+    {
+      "name": "Click Download in Context Menu",
+      "triggerContexts": [
+        "video_download",
+        "download_menu",
+        "click_download_menu"
+      ],
+      "action": "click_selector",
+      "selector": "[role='menuitem']:has-text('Download'), button:has-text('Download'), div[role='menuitem']:has-text('Download')",
+      "force": true
+    },
+    {
+      "name": "Select 720p Download Resolution",
+      "triggerContexts": [
+        "video_download",
+        "download_menu",
+        "select_download_quality"
+      ],
+      "action": "click_selector",
+      "selector": "[role='menuitem']:has-text('720p'), [role='menuitem']:has-text('Original size'), button:has-text('720p'), div:has-text('720p')",
+      "force": true
+    }
+  ]
+}

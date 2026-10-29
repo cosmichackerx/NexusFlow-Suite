@@ -1,0 +1,34 @@
+{
+  "name": "nexusflow-google-drive-bones-of-empires",
+  "version": "1.0.0",
+  "description": "Comprehensive Google Drive Asset, Strategy & Finished Shorts Synchronization Suite for Bones of Empires within NexusFlow",
+  "main": "cli.js",
+  "bin": {
+    "bones-drive": "./cli.js"
+  },
+  "scripts": {
+    "status": "node cli.js status",
+    "plan": "node cli.js plan",
+    "progress": "node cli.js progress",
+    "metadata": "node cli.js metadata",
+    "stage": "node cli.js stage",
+    "manifest": "node cli.js manifest",
+    "open": "node cli.js open",
+    "mcp": "node mcp/server.js",
+    "install-skill": "powershell -ExecutionPolicy Bypass -File install.ps1"
+  },
+  "keywords": [
+    "nexusflow",
+    "google-drive",
+    "bones-of-empires",
+    "cloud-storage",
+    "shorts-sync",
+    "channel-plan",
+    "progress-tracking",
+    "mcp",
+    "antigravity"
+  ],
+  "author": "NexusFlow Team & Antigravity AI",
+  "license": "MIT",
+  "type": "commonjs"
+}

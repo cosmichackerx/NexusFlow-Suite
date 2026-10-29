@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusFlow YouTube Uploader</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Frameless Header -->
+  <div class="header">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <img src="icon.png" alt="Logo" style="width: 28px; height: 28px; border-radius: 6px;">
+      <div style="display: flex; flex-direction: column;">
+        <h1 style="margin: 0; line-height: 1.1;">YouTube Uploader</h1>
+        <span style="font-size: 11px; color: var(--text-secondary); font-weight: 500;">NexusFlow Automation Suite</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div id="channelBadge" class="header-badge" style="display: flex; align-items: center; gap: 6px; font-size: 12px;">
+        <span class="auth-dot not-auth"></span>
+        <span id="channelNameText">Checking Auth...</span>
+      </div>
+      <button id="refreshBtn" class="header-badge interactive" title="Refresh status and scan NexusFlow">⟳ Refresh</button>
+      <button id="settingsBtn" class="header-badge interactive" title="Settings">⚙ Settings</button>
+      <button id="restartBtn" class="header-badge interactive" title="Restart App">↻</button>
+      <div class="window-controls">
+        <button id="minBtn" class="win-btn" title="Minimize">─</button>
+        <button id="maxBtn" class="win-btn" title="Maximize">□</button>
+        <button id="closeBtn" class="win-btn close-btn" title="Close">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Left Column: Single Upload & Video Inspector -->
+    <div class="panel controls-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 style="margin: 0; font-size: 1.15rem;">Video Preparation</h2>
+        <div id="statusBadge" class="status-badge idle">Idle</div>
+      </div>
+
+      <!-- Video Drop / Picker Zone -->
+      <div id="dropZone" class="drop-zone">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color); margin-bottom: 6px;">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+        <div style="font-size: 13px; font-weight: 500;">Select or Drag & Drop MP4 Video</div>
+        <div id="selectedFilename" style="font-size: 11px; color: var(--text-secondary); margin-top: 4px; word-break: break-all;">No video selected</div>
+      </div>
+
+      <!-- Video Probe Stats Card -->
+      <div id="probeCard" class="probe-card" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase;">Analysis</span>
+          <span id="shortsPill" class="shorts-pill">⚡ YouTube Shorts</span>
+        </div>
+        <div class="probe-grid">
+          <div class="probe-item">
+            <span class="probe-label">Duration</span>
+            <span class="probe-val" id="probeDuration">00:00</span>
+          </div>
+          <div class="probe-item">
+            <span class="probe-label">Resolution</span>
+            <span class="probe-val" id="probeRes">0x0</span>
+          </div>
+          <div class="probe-item">
+            <span class="probe-label">Ratio</span>
+            <span class="probe-val" id="probeRatio">Unknown</span>
+          </div>
+          <div class="probe-item">
+            <span class="probe-label">File Size</span>
+            <span class="probe-val" id="probeSize">0 MB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metadata Form -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label for="videoTitle">Video Title</label>
+          <span id="titleCounter" class="char-counter">0 / 100</span>
+        </div>
+        <input type="text" id="videoTitle" placeholder="Video title (auto-generated from prompt if blank)" maxlength="100" />
+      </div>
+
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label for="videoDesc">Description</label>
+          <span id="descCounter" class="char-counter">0 / 5000</span>
+        </div>
+        <textarea id="videoDesc" rows="3" placeholder="Video description (auto-filled from prompt or defaults)" maxlength="5000"></textarea>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+        <div class="form-group" style="flex: 2; margin-bottom: 0;">
+          <label for="videoTags">Tags (comma-separated)</label>
+          <input type="text" id="videoTags" placeholder="NexusFlow, AI, Shorts" />
+        </div>
+        <div class="form-group" style="flex: 1; margin-bottom: 0;">
+          <label for="videoVisibility">Visibility</label>
+          <select id="videoVisibility">
+            <option value="public">Public</option>
+            <option value="unlisted">Unlisted</option>
+            <option value="private">Private</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 8px; margin-top: 8px;">
+        <button id="uploadSingleBtn" class="btn-primary" style="flex: 2;">Upload Video Directly</button>
+        <button id="addToQueueBtn" class="btn-secondary" style="flex: 1;">+ To Queue</button>
+      </div>
+
+      <!-- Studio Auth & Channel Card -->
+      <div class="auth-card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 13px; font-weight: 600;" id="authStatusTitle">YouTube Studio Session</div>
+            <div style="font-size: 11.5px; color: var(--text-secondary);" id="authStatusSubtitle">Sign in to publish videos</div>
+          </div>
+          <button id="loginBtn" class="header-badge interactive" style="font-size: 11px; padding: 5px 10px; cursor: pointer;">Studio Login</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Queue, History & Logs -->
+    <div class="panel logs-panel">
+      <!-- Tabs Navigation -->
+      <div class="tab-header">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="queueTab">Upload Queue (<span id="queueBadgeCount">0</span>)</button>
+          <button class="tab-btn" data-tab="historyTab">Upload History (<span id="historyBadgeCount">0</span>)</button>
+          <button class="tab-btn" data-tab="logsTab">Execution Logs</button>
+        </div>
+        <div class="tab-actions">
+          <button id="copyLogsBtn" class="header-badge interactive" style="font-size: 11px; padding: 4px 8px; display: none;">Copy Logs</button>
+        </div>
+      </div>
+
+      <!-- Tab 1: Queue -->
+      <div id="queueTab" class="tab-content active">
+        <div class="queue-toolbar">
+          <div style="display: flex; gap: 6px;">
+            <button id="scanNexusBtn" class="header-badge interactive" style="font-size: 11.5px;" title="Scan NexusFlow Output & Result folders">🔍 Scan NexusFlow</button>
+            <button id="autoQueueNexusBtn" class="header-badge interactive" style="font-size: 11.5px; background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4);" title="Queue all unuploaded NexusFlow videos">+ Queue NexusFlow</button>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button id="clearQueueBtn" class="header-badge interactive" style="font-size: 11.5px;">Clear Queue</button>
+            <button id="startQueueBtn" class="btn-primary" style="padding: 5px 14px; font-size: 12px; margin: 0; width: auto; background: var(--success-color);">▶ Start Queue</button>
+            <button id="stopQueueBtn" class="btn-secondary" style="padding: 5px 12px; font-size: 12px; margin: 0; width: auto; color: var(--error-color); display: none;">■ Stop</button>
+          </div>
+        </div>
+
+        <div class="queue-progress-container" id="queueProgressContainer" style="display: none;">
+          <div class="queue-progress-bar" id="queueProgressBar" style="width: 0%;"></div>
+        </div>
+
+        <div id="queueList" class="queue-list">
+          <div class="empty-state">No videos in queue. Click "Queue NexusFlow" or add a video on the left.</div>
+        </div>
+      </div>
+
+      <!-- Tab 2: History -->
+      <div id="historyTab" class="tab-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span style="font-size: 12px; color: var(--text-secondary);">Previously uploaded videos</span>
+          <button id="clearHistoryBtn" class="header-badge interactive" style="font-size: 11px; padding: 3px 8px;">Clear History</button>
+        </div>
+        <div id="historyList" class="history-list">
+          <div class="empty-state">No upload history yet.</div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Logs -->
+      <div id="logsTab" class="tab-content">
+        <div id="logContainer" class="log-container">
+          <!-- Logs populate here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">YouTube Uploader Settings</div>
+        <button class="modal-close" id="closeSettingsBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <label>Default Visibility</label>
+          <select id="settingVisibility" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px;">
+            <option value="public">Public</option>
+            <option value="unlisted">Unlisted</option>
+            <option value="private">Private</option>
+          </select>
+        </div>
+
+        <div class="setting-item">
+          <label>Queue Upload Delay (seconds)</label>
+          <input type="number" id="settingDelay" value="15" min="5" max="300" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; width: 80px;" />
+        </div>
+
+        <div class="setting-item">
+          <label>Default Tags (comma-separated)</label>
+          <input type="text" id="settingDefaultTags" style="flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px;" />
+        </div>
+
+        <div class="setting-item" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="settingAutoShorts" checked style="width: 16px; height: 16px; cursor: pointer;" />
+            <label for="settingAutoShorts" style="cursor: pointer;">Auto-detect YouTube Shorts (&le; 60s and vertical/square)</label>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="settingAddShortsTag" checked style="width: 16px; height: 16px; cursor: pointer;" />
+            <label for="settingAddShortsTag" style="cursor: pointer;">Automatically append #Shorts to title and description</label>
+          </div>
+        </div>
+
+        <div class="setting-item" style="flex-direction: column; align-items: stretch; gap: 10px; border-top: 1px solid var(--border-color); padding-top: 14px;">
+          <label style="font-weight: 600;">NexusFlow Integration Directories</label>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label style="flex: 1; font-size: 12px; color: var(--text-secondary);">Output Clips Folder:</label>
+            <input type="text" id="settingOutputDir" style="flex: 2; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; font-size: 11px; margin-right: 5px;" readonly />
+            <button id="browseOutputBtn" class="btn-secondary" style="padding: 4px 10px; font-size: 11px; margin: 0; width: auto;">Browse</button>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label style="flex: 1; font-size: 12px; color: var(--text-secondary);">Result Videos Folder:</label>
+            <input type="text" id="settingResultDir" style="flex: 2; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; font-size: 11px; margin-right: 5px;" readonly />
+            <button id="browseResultBtn" class="btn-secondary" style="padding: 4px 10px; font-size: 11px; margin: 0; width: auto;">Browse</button>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px; padding: 15px 20px; border-top: 1px solid var(--border-color);">
+        <button id="saveSettingsBtn" class="btn-primary" style="margin: 0; width: auto; padding: 6px 18px;">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

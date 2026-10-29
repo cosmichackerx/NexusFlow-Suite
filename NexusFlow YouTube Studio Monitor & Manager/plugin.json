@@ -1,0 +1,17 @@
+{
+  "name": "nexusflow-youtube-studio-monitor",
+  "version": "1.0.0",
+  "description": "YouTube Studio Monitoring & Operational Management Suite for NexusFlow & Antigravity",
+  "mcpServers": {
+    "youtube-studio-monitor": {
+      "command": "node",
+      "args": ["${pluginDir}/mcp/server.js"]
+    }
+  },
+  "skills": [
+    {
+      "name": "youtube-studio-monitor",
+      "path": "skills/youtube-studio-monitor/SKILL.md"
+    }
+  ]
+}

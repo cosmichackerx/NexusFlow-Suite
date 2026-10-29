@@ -1,0 +1,36 @@
+{
+  "name": "youtube-channel-metadata-and-history",
+  "version": "1.0.0",
+  "description": "Comprehensive Channel Memory, Video Metadata Ledger, Prompt Lineage, Production Chronicle & Analytics Suite for NexusFlow & Google Antigravity",
+  "main": "cli.js",
+  "bin": {
+    "channel-history": "./cli.js"
+  },
+  "scripts": {
+    "start": "node cli.js status",
+    "status": "node cli.js status",
+    "sync": "node cli.js sync",
+    "list": "node cli.js list",
+    "memory": "node cli.js memory",
+    "prompts": "node cli.js prompts",
+    "analytics": "node cli.js analytics",
+    "export": "node cli.js export",
+    "mcp": "node mcp/server.js",
+    "install-mcp": "node install.js"
+  },
+  "keywords": [
+    "youtube",
+    "channel-memory",
+    "history-ledger",
+    "metadata",
+    "prompts",
+    "continuity-lock",
+    "nexusflow",
+    "antigravity",
+    "mcp",
+    "shorts",
+    "video-analytics"
+  ],
+  "author": "Antigravity AI & NexusFlow Team",
+  "license": "MIT"
+}

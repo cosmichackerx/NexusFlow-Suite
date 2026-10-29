@@ -1,0 +1,12 @@
+interface:
+  display_name: "YouTube Manager"
+  short_description: "Maintain channel memory, strategy, and performance insights for Antigravity"
+  default_prompt: "Use the youtube-manager skill to research my channel, draft its profile for approval, and save its setup memory after I approve."
+subagent:
+  type: "self"
+  model: "inherit"
+  capabilities:
+    - "search_web"
+    - "read_file"
+    - "write_file"
+    - "run_command"

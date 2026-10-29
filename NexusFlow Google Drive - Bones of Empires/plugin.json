@@ -1,0 +1,14 @@
+{
+  "name": "nexusflow-google-drive-bones-of-empires",
+  "version": "1.0.0",
+  "description": "Bones of Empires Google Drive Master Asset & Finished Shorts Sync Plugin for Antigravity & NexusFlow",
+  "skills": [
+    "./skills/google-drive-bones-of-empires"
+  ],
+  "mcpServers": {
+    "nexusflow-gdrive-bones": {
+      "command": "node",
+      "args": ["${workspaceFolder}/mcp/server.js"]
+    }
+  }
+}

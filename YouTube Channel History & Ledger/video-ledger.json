@@ -1,0 +1,277 @@
+[
+  {
+    "id": "vid_1792950011352_2_vertical_9_16_ultra_detailed",
+    "episodeNumber": 5,
+    "arcId": "arc_01_alexandria",
+    "title": "Untitled NexusFlow Short",
+    "titleVariants": {
+      "recommended": "Untitled NexusFlow Short",
+      "browseCtr": "Untitled NexusFlow Short",
+      "searchIntent": "Untitled NexusFlow Short",
+      "mobileShort": "Untitled NexusFlow Short"
+    },
+    "videoPath": "C:\\Google Flow Customized\\Output\\2_Vertical_9_16_ultra_detailed_c_cd72a767a4.mp4",
+    "filename": "2_Vertical_9_16_ultra_detailed_c_cd72a767a4.mp4",
+    "isShort": true,
+    "durationSec": 24,
+    "formattedDuration": "00:24",
+    "status": "rendered",
+    "timestamps": {
+      "createdAt": "2026-10-23T19:06:26.630Z",
+      "renderedAt": "2026-10-23T19:06:26.543Z",
+      "mergedAt": null,
+      "seoGeneratedAt": null,
+      "queuedAt": null,
+      "publishedAt": null,
+      "updatedAt": "2026-10-25T17:40:11.352Z"
+    },
+    "prompts": null,
+    "seo": null,
+    "youtube": {
+      "channelName": "Bones of Empires",
+      "channelHandle": "@BonesOfEmpires",
+      "queueId": null,
+      "videoId": null,
+      "videoUrl": null,
+      "visibility": "public",
+      "status": "pending"
+    },
+    "analytics": {
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    "notes": "Discovered from NexusFlow output directory (5.6 MB)"
+  },
+  {
+    "id": "vid_1792950011292_1_vertical_9_16_ultra_detailed",
+    "episodeNumber": 4,
+    "arcId": "arc_01_alexandria",
+    "title": "Untitled NexusFlow Short",
+    "titleVariants": {
+      "recommended": "Untitled NexusFlow Short",
+      "browseCtr": "Untitled NexusFlow Short",
+      "searchIntent": "Untitled NexusFlow Short",
+      "mobileShort": "Untitled NexusFlow Short"
+    },
+    "videoPath": "C:\\Google Flow Customized\\Output\\1_Vertical_9_16_ultra_detailed_c_b5e955a09a.mp4",
+    "filename": "1_Vertical_9_16_ultra_detailed_c_b5e955a09a.mp4",
+    "isShort": true,
+    "durationSec": 24,
+    "formattedDuration": "00:24",
+    "status": "rendered",
+    "timestamps": {
+      "createdAt": "2026-10-23T19:04:45.739Z",
+      "renderedAt": "2026-10-23T19:04:45.726Z",
+      "mergedAt": null,
+      "seoGeneratedAt": null,
+      "queuedAt": null,
+      "publishedAt": null,
+      "updatedAt": "2026-10-25T17:40:11.292Z"
+    },
+    "prompts": null,
+    "seo": null,
+    "youtube": {
+      "channelName": "Bones of Empires",
+      "channelHandle": "@BonesOfEmpires",
+      "queueId": null,
+      "videoId": null,
+      "videoUrl": null,
+      "visibility": "public",
+      "status": "pending"
+    },
+    "analytics": {
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    "notes": "Discovered from NexusFlow output directory (6.79 MB)"
+  },
+  {
+    "id": "vid_1792950011227_0_vertical_9_16_ultra_detailed",
+    "episodeNumber": 3,
+    "arcId": "arc_01_alexandria",
+    "title": "Untitled NexusFlow Short",
+    "titleVariants": {
+      "recommended": "Untitled NexusFlow Short",
+      "browseCtr": "Untitled NexusFlow Short",
+      "searchIntent": "Untitled NexusFlow Short",
+      "mobileShort": "Untitled NexusFlow Short"
+    },
+    "videoPath": "C:\\Google Flow Customized\\Output\\0_Vertical_9_16_ultra_detailed_c_1e48293b1b.mp4",
+    "filename": "0_Vertical_9_16_ultra_detailed_c_1e48293b1b.mp4",
+    "isShort": true,
+    "durationSec": 24,
+    "formattedDuration": "00:24",
+    "status": "rendered",
+    "timestamps": {
+      "createdAt": "2026-10-23T19:02:56.851Z",
+      "renderedAt": "2026-10-23T19:02:56.836Z",
+      "mergedAt": null,
+      "seoGeneratedAt": null,
+      "queuedAt": null,
+      "publishedAt": null,
+      "updatedAt": "2026-10-25T17:40:11.227Z"
+    },
+    "prompts": null,
+    "seo": null,
+    "youtube": {
+      "channelName": "Bones of Empires",
+      "channelHandle": "@BonesOfEmpires",
+      "queueId": null,
+      "videoId": null,
+      "videoUrl": null,
+      "visibility": "public",
+      "status": "pending"
+    },
+    "analytics": {
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    "notes": "Discovered from NexusFlow output directory (3.82 MB)"
+  },
+  {
+    "id": "vid_1792950011104_combined_video_2026_10_23t19_0",
+    "episodeNumber": 2,
+    "arcId": "arc_01_alexandria",
+    "title": "Untitled NexusFlow Short",
+    "titleVariants": {
+      "recommended": "Untitled NexusFlow Short",
+      "browseCtr": "Untitled NexusFlow Short",
+      "searchIntent": "Untitled NexusFlow Short",
+      "mobileShort": "Untitled NexusFlow Short"
+    },
+    "videoPath": "C:\\Google Flow Customized\\Result\\Combined_Video_2026-10-23T19-06-36-172Z.mp4",
+    "filename": "Combined_Video_2026-10-23T19-06-36-172Z.mp4",
+    "isShort": true,
+    "durationSec": 24,
+    "formattedDuration": "00:24",
+    "status": "merged",
+    "timestamps": {
+      "createdAt": "2026-10-23T19:06:36.582Z",
+      "renderedAt": "2026-10-23T19:06:36.565Z",
+      "mergedAt": "2026-10-23T19:06:36.565Z",
+      "seoGeneratedAt": null,
+      "queuedAt": null,
+      "publishedAt": null,
+      "updatedAt": "2026-10-25T17:40:11.104Z"
+    },
+    "prompts": null,
+    "seo": null,
+    "youtube": {
+      "channelName": "Bones of Empires",
+      "channelHandle": "@BonesOfEmpires",
+      "queueId": null,
+      "videoId": null,
+      "videoUrl": null,
+      "visibility": "public",
+      "status": "pending"
+    },
+    "analytics": {
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    "notes": "Discovered from NexusFlow result directory (16.19 MB)"
+  },
+  {
+    "id": "vid_1793293725285_alexandria_vault",
+    "episodeNumber": 6,
+    "arcId": "arc_01_alexandria",
+    "title": "He Found Something Under Alexandria... 💀 #Shorts",
+    "titleVariants": {
+      "recommended": "He Found Something Under Alexandria... 💀 #Shorts",
+      "browseCtr": "He Found Something Under Alexandria... 💀 #Shorts",
+      "searchIntent": "He Found Something Under Alexandria... 💀 #Shorts",
+      "mobileShort": "He Found Something Under Alexandria... 💀 #Shorts"
+    },
+    "videoPath": "C:\\Google Flow Customized\\Result\\Combined_Video_Full.mp4",
+    "filename": "Combined_Video_Full.mp4",
+    "isShort": true,
+    "durationSec": 24,
+    "formattedDuration": "00:24",
+    "status": "queued",
+    "timestamps": {
+      "createdAt": "2026-10-29T17:08:45.285Z",
+      "queuedAt": "2026-10-29T17:08:45.285Z",
+      "publishedAt": null,
+      "updatedAt": "2026-10-29T17:08:45.285Z"
+    },
+    "prompts": {
+      "promptId": "prompt_1793293617618_the_subterranean_vau",
+      "sceneCount": 3,
+      "dialogueQuotes": [
+        "MARROW",
+        "They told you Atlantis sank into the ocean.",
+        "What if the ocean receded... and left it buried in sand?",
+        "The first ring... still intact.",
+        "Three concentric water rings... exactly as Plato recorded.",
+        "The mega-aqueducts of the kings!",
+        "The throne chamber is down there.",
+        "Not a myth... an imperial capital.",
+        "They were wiped out overnight... but the vault survived.",
+        "Ready to unlearn everything?"
+      ],
+      "rawText": "Vertical 9:16, ultra-detailed cinematic stylised 3D CGI, Pixar-meets-documentary realism, blinding desert sun and swirling golden dust haze, high-contrast volumetric rim lighting, shallow depth of field, rich teal-and-amber colour grade, crisp micro-texture on wind-blasted sandstone, 24 fps, aggressive cinematic camera work with low tracking and fast rack focus. CHARACTER \"MARROW\": a stylised anatomical human skeleton made of polished ivory-white bones, surrounded by a faintly translucent pale-cyan glass-like body silhouette around the torso and limbs, with two warm amber glowing lights inside the eye sockets that flare brighter or dim with emotion, expressive stylised proportions with a large skull and slim ribcage, wearing a plain undyed wool Roman tunic with a brown leather belt and a small leather coin pouch on the left hip, no modern items. VOICE CHARACTER: Marrow speaks with a deep, resonant, slightly raspy male voice, calm but ominous, with clear English pronunciation, cinematic documentary delivery, subtle vocal grit, and natural pauses. Dialogue synchronised with gestures and skull movements. CONTINUITY LOCK: the colossal concentric ridges of the Richat Structure in Mauritania; endless ripples of red-gold sand, weathered volcanic basalt pillars, and ancient salt flats gleaming under heat mirages. Marrow's tunic, ivory bones, cyan silhouette, and glowing amber eye-lights never change. AUDIO BED: howling desert wind, sand grains hissing against stone, distant low seismic groan, and solemn cinematic drone. START FRAME: wide low-angle shot looking across the monumental circular ridges; Marrow steps out from behind a colossal sand-worn stone monolith, raising an ivory hand to shield his glowing eyes from the blinding sun. TIMING: 0 to 2 seconds, Marrow watches a dust devil twist across the salt flats; his amber eye-lights narrow as he whispers, \"They told you Atlantis sank into the ocean.\"; 2 to 5 seconds, camera rushes along the ridge line beside him; Marrow points downward toward an immense submerged canal channel carved into the bedrock and says, \"What if the ocean receded... and left it buried in sand?\"; 5 to 8 seconds, Marrow crouches and brushes aside a layer of red sand, revealing an interlocking slab of pure iridescent orichalcum metal beneath; the camera snaps into a dramatic low-angle push as Marrow mutters, \"The first ring... still intact.\" CAMERA AND LENS: begin with an epic 24mm wide establishing shot of the vast rings, shift into a 35mm running tracking shot, and snap into a 50mm portrait push isolating Marrow's skull against the golden sky. SFX: wind gusts, sand scraping on bone, metallic resonance when sand is brushed, and deep bass rumble. Dialogue synchronized. FINAL FRAME: close-up of Marrow looking up with radiant amber eyes, the metallic slab glowing beneath his fingers. END AUDIO: a deep harmonic desert resonance fades slowly. END\n\nVertical 9:16, ultra-detailed cinematic stylised 3D CGI, Pixar-meets-documentary realism, golden sunset fading into violet desert twilight, high-contrast rim lighting, shallow depth of field, rich teal-and-amber colour grade, crisp micro-texture detail on ancient masonry, 24 fps, rapid camera orbit and tracking. CHARACTER \"MARROW\": the identical polished ivory-white anatomical skeleton with pale-cyan silhouette, glowing amber eye-lights, undyed wool Roman tunic, belt, and coin pouch. VOICE CHARACTER: maintain the exact deep, resonant, slightly raspy male voice, documentary delivery, and vocal grit. CONTINUITY LOCK: the excavated bedrock trench inside the central island of the Richat Structure, ancient red-and-white stone masonry revealed beneath sand dunes, and the iridescent orichalcum conduit running along the floor. AUDIO BED: rising desert wind, deep subterranean metallic vibrations, rhythmic electrical hum, and eerie vocal choir pad. START FRAME: match the final frame of Scene 1: close-up of Marrow kneeling beside the orichalcum slab. TIMING: 0 to 2 seconds, Marrow presses his palm against the central crest; cyan energy pulses from his skeleton into the metallic vein, causing the entire trench to illuminate with geometric conduits; Marrow smiles grimly, \"Three concentric water rings... exactly as Plato recorded.\"; 2 to 5 seconds, camera executes a dramatic 180-degree high-angle orbit as massive stone floodgates rise from beneath the dunes with cascades of tumbling sand; Marrow stands tall as ancient water channels begin to hum with dormant power; he exclaims, \"The mega-aqueducts of the kings!\"; 5 to 8 seconds, a sudden seismic shudder rocks the ground; the central floodgate reveals a dark downward stairway leading miles beneath the desert; Marrow turns his skull toward the abyss as a warm subterranean gust blows his tunic, saying, \"The throne chamber is down there.\" CAMERA AND LENS: 35mm overhead orbital crane descending into a dynamic waist shot, followed by a 50mm push toward the open underground stairway. SFX: seismic thrum, stone grinding against stone, sand avalanches, orichalcum energy chime, and deep sub-bass drop. Dialogue accurately synced. FINAL FRAME: medium shot of Marrow poised on the top step of the dark subterranean stairs, amber eye-lights reflecting ancient secrets below. END AUDIO: low brass cadence and metallic echo. END\n\nVertical 9:16, ultra-detailed cinematic stylised 3D CGI, Pixar-meets-documentary realism, subterranean cavern illuminated by blue geothermal pools and glowing orichalcum pillars, high-contrast volumetric shadows, shallow depth of field, rich teal-and-amber colour grade, 24 fps, cinematic crane plunge and snap zooms. CHARACTER \"MARROW\": identical polished ivory skeleton, translucent cyan silhouette, radiant amber eye-lights, undyed Roman tunic, belt, and pouch. VOICE CHARACTER: exact deep, resonant, slightly raspy male voice, documentary cadence, synchronized speech. CONTINUITY LOCK: the subterranean throne citadel beneath the Eye of the Sahara, towering basalt columns wrapped in spiraling gold conduits, clear turquoise water pools, and a central circular dais holding an untouched celestial globe. AUDIO BED: echoing cavern drips, deep thermal resonance, celestial crystal chimes, and building sub-bass pulse. START FRAME: match Scene 2 final frame: low-angle tracking shot of Marrow descending into the radiant cavern. TIMING: 0 to 2 seconds, Marrow steps onto the mirrored central dais; his eye-lights flare with awe as he gazes upon the floating celestial globe spinning silently over water; he whispers, \"Not a myth... an imperial capital.\"; 2 to 5 seconds, camera executes a rapid 360-degree crane sweep around Marrow; he touches the globe, which projects an ancient holographic map of Earth before the ice age onto the cavern ceiling; Marrow looks directly into the lens with urgent intensity: \"They were wiped out overnight... but the vault survived.\"; 5 to 8 seconds, the celestial globe flashes brilliant gold, illuminating Marrow's ivory skull from within; he reaches forward to secure the golden memory core, shoots a sharp skeletal smirk at the viewer, and whispers, \"Ready to unlearn everything?\", right as the cavern ceiling fractures and blinding light flashes before a sudden cut to black. CAMERA AND LENS: 24mm wide crane dropping into a 50mm macro whip zoom onto Marrow's smirking skull. SFX: floating orb hum, holographic projection chime, sub-bass thud, stone cracking, and sudden vacuum cut to black. Dialogue synchronized. FINAL FRAME: extreme close-up on Marrow's radiant skull amidst blinding gold light one frame before black. END AUDIO: a deep subterranean bell boom and silence. END"
+    },
+    "seo": {
+      "title": "He Found Something Under Alexandria... 💀 #Shorts",
+      "description": "Deep beneath Alexandria, a lost Roman mechanism begins to turn... Watch the full mystery unfold with MARROW.\n\n🏛️ THE STORY:\nHidden beneath the flooded cisterns of ancient Alexandria lies an impossible machine. Guided by MARROW, we venture into centuries of subterranean silence to awaken the lost mechanism of Archimedes.\n\n🗣️ DIALOGUE:\n\"Down here... even the shadows have weight.\"\n\"Three hundred years of silence...\"\n\"The lost mechanism of Archimedes!\"\n\n⏳ TIMESTAMPS / SCENE PACING:\n00:00 The Sunken Roman Cistern\n00:08 The Mechanism of Archimedes Rises\n00:16 The Golden Gateway & Final Leap\n\n💬 QUESTION FOR YOU:\nIf you uncovered an ancient glowing gateway turning deep under an ancient city, would you step through? What do you think MARROW discovered on the other side? Drop your wildest theory below! 👇\n\n🔔 SUBSCRIBE TO BONES OF EMPIRES:\nSubscribe for weekly cinematic 3D journeys through ancient mysteries, lost civilizations, and forgotten imperial secrets:\n👉 https://youtube.com/@BonesofEmpires?sub_confirmation=1\n\n🎬 PRODUCTION CREDITS:\n- Concept & Lore: Bones of Empires Studios\n- Engine: NexusFlow AI & Google Antigravity\n- Render Style: 9:16 Vertical 3D CGI Realism, Teal & Amber Grade, 24 FPS\n- Character: MARROW\n\n#Shorts #History #BonesofEmpires #Archaeology #AncientRome #Alexandria #AncientMysteries #Archimedes #3DAnimation #CGI #LostCivilization #ViralShorts\n\nCreated with NexusFlow AI & Google Antigravity",
+      "tags": [
+        "Bones of Empires",
+        "MARROW",
+        "Bones of Empires Shorts",
+        "Shorts",
+        "YouTube Shorts",
+        "YouTubeShorts",
+        "Viral Shorts",
+        "Alexandria Cistern",
+        "Archimedes Mechanism",
+        "Ancient Technology",
+        "Roman Engineering",
+        "Subterranean Cistern",
+        "Ancient History",
+        "Archaeology",
+        "Lost Civilizations",
+        "Roman Empire",
+        "Ancient Mysteries",
+        "Unsolved Mysteries",
+        "3D Animation",
+        "3D CGI",
+        "Cinematic Animation",
+        "Pixar Realism",
+        "what was buried under alexandria",
+        "ancient roman secrets",
+        "lost technology of archimedes"
+      ],
+      "hashtags": [
+        "#Shorts",
+        "#History",
+        "#BonesofEmpires",
+        "#Archaeology",
+        "#AncientRome",
+        "#Alexandria",
+        "#AncientMysteries",
+        "#Archimedes",
+        "#3DAnimation",
+        "#CGI",
+        "#LostCivilization",
+        "#ViralShorts"
+      ]
+    },
+    "youtube": {
+      "channelName": "Bones of Empires",
+      "channelHandle": "@BonesOfEmpires",
+      "queueId": "queue_1793293725277_kw3g8u",
+      "visibility": "public",
+      "status": "queued"
+    },
+    "analytics": {
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    "notes": "Autonomous Pipeline execution via All In One Antigravity Suite"
+  }
+]

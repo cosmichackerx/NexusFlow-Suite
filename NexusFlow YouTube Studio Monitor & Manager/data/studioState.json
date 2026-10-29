@@ -1,0 +1,165 @@
+{
+  "lastUpdated": "2026-10-26T23:08:00.000Z",
+  "channel": {
+    "name": "Bones of Empires",
+    "handle": "@BonesOfEmpires",
+    "id": "UCZXJSiKIw60aaUVBJv1ucCQ",
+    "studioUrl": "https://studio.youtube.com/channel/UCZXJSiKIw60aaUVBJv1ucCQ",
+    "avatarUrl": "https://yt3.googleusercontent.com/ytc/default",
+    "status": "Healthy / Active Production",
+    "copyrightStrikes": 0,
+    "communityGuidelinesWarnings": 0
+  },
+  "analyticsOverview": {
+    "currentSubscribers": 6,
+    "subscribersGained28d": 6,
+    "views28d": 3200,
+    "watchTimeHours28d": 13.7,
+    "estimatedEarnings": "$0.00"
+  },
+  "latestShortPerformance": {
+    "title": "The Rupee Is Almost 500 Years Old 🪙 #shorts",
+    "timeSincePublish": "3 hours 7 minutes",
+    "publishedAt": "2026-10-26T20:01:00.000Z",
+    "rankingByViews": "6 of 10",
+    "views": 31,
+    "averagePercentageViewed": 50.6,
+    "likes": 0,
+    "comments": 0,
+    "performanceVerdict": "Moderate retention (50.6%). Needs higher initial hook speed in 0-2s to reach 70%+ viral threshold."
+  },
+  "topContent48Hours": [
+    {
+      "id": "vid_pirates_treasure",
+      "title": "Pirates Almost Never Buried Their Treasure 🏴‍☠️",
+      "views48h": 1100,
+      "totalViews": 1100,
+      "likes": 30,
+      "comments": 1,
+      "status": "Trending (Algorithmic browse pickup)"
+    },
+    {
+      "id": "vid_diamond_mines",
+      "title": "For 2,000 Years, Almost Every Diamond Came From One Place 💎",
+      "views48h": 205,
+      "totalViews": 308,
+      "likes": 18,
+      "comments": 0,
+      "status": "Steady Search & Browse"
+    },
+    {
+      "id": "vid_kalaripayattu",
+      "title": "What If You Were Raised as a Kalaripayattu Warrior? ⚔️",
+      "views48h": 36,
+      "totalViews": 36,
+      "likes": 2,
+      "comments": 0,
+      "status": "Early Testing"
+    }
+  ],
+  "publishedVideos": [
+    {
+      "id": "vid_001",
+      "title": "Pirates Almost Never Buried Their Treasure 🏴‍☠️",
+      "type": "Short",
+      "duration": "00:28",
+      "publishedAt": "2026-10-25T14:00:00Z",
+      "views": 1042,
+      "comments": 1,
+      "likes": 30,
+      "visibility": "Public",
+      "restrictions": "None",
+      "apv": 68.4
+    },
+    {
+      "id": "vid_002",
+      "title": "For 2,000 Years, Almost Every Diamond Came From One Place 💎",
+      "type": "Short",
+      "duration": "00:32",
+      "publishedAt": "2026-10-25T18:00:00Z",
+      "views": 308,
+      "comments": 0,
+      "likes": 18,
+      "visibility": "Public",
+      "restrictions": "None",
+      "apv": 58.2
+    },
+    {
+      "id": "vid_003",
+      "title": "This Empire Had No Money. It Ran on Knots 🧶",
+      "type": "Short",
+      "duration": "00:26",
+      "publishedAt": "2026-10-25T21:00:00Z",
+      "views": 104,
+      "comments": 0,
+      "likes": 4,
+      "visibility": "Public",
+      "restrictions": "None",
+      "apv": 52.1
+    },
+    {
+      "id": "vid_004",
+      "title": "Rome Taxed Pee. 'Money Doesn't Stink' 🏛️",
+      "type": "Short",
+      "duration": "00:24",
+      "publishedAt": "2026-10-26T02:00:00Z",
+      "views": 47,
+      "comments": 0,
+      "likes": 4,
+      "visibility": "Public",
+      "restrictions": "None",
+      "apv": 48.9
+    },
+    {
+      "id": "vid_005",
+      "title": "What If You Were Raised as a Kalaripayattu Warrior? ⚔️",
+      "type": "Short",
+      "duration": "00:25",
+      "publishedAt": "2026-10-26T12:00:00Z",
+      "views": 36,
+      "comments": 0,
+      "likes": 2,
+      "visibility": "Public",
+      "restrictions": "None",
+      "apv": 46.5
+    },
+    {
+      "id": "vid_006",
+      "title": "The Rupee Is Almost 500 Years Old 🪙 #shorts",
+      "type": "Short",
+      "duration": "00:27",
+      "publishedAt": "2026-10-26T20:01:00Z",
+      "views": 31,
+      "comments": 0,
+      "likes": 0,
+      "visibility": "Public",
+      "restrictions": "None",
+      "apv": 50.6
+    }
+  ],
+  "monetizationProgress": {
+    "subscribersCurrent": 6,
+    "subscribersRequired": 1000,
+    "subscribersPercent": 0.6,
+    "watchHoursCurrent": 13.7,
+    "watchHoursRequired": 4000,
+    "watchHoursPercent": 0.34,
+    "shortsViewsCurrent": 3200,
+    "shortsViewsRequired": 10000000,
+    "shortsViewsPercent": 0.03,
+    "eligibleForYPP": false,
+    "estimatedDaysToMilestone": "Accelerating with Shorts view velocity"
+  },
+  "communityModeration": {
+    "totalComments": 1,
+    "pendingReview": 0,
+    "latestComment": {
+      "author": "@HistoryBuff42",
+      "videoTitle": "Pirates Almost Never Buried Their Treasure 🏴‍☠️",
+      "text": "Never knew that about Captain Kidd! Mind blown.",
+      "heartStatus": "hearted",
+      "replyStatus": "replied",
+      "sentiment": "positive"
+    }
+  }
+}

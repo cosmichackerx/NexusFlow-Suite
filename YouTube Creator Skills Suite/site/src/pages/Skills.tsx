@@ -1,0 +1,52 @@
+import { useRef } from 'react'
+import { Link } from 'react-router'
+import { skills, groups } from '../data/skills'
+import { useRiseReveal } from '../lib/gsap'
+import { resolvePageMeta, useSeo } from '../lib/useSeo'
+
+export function Skills() {
+  const root = useRef<HTMLDivElement>(null)
+
+  useSeo(resolvePageMeta('/skills'))
+
+  useRiseReveal(root)
+
+  return (
+    <div ref={root} className="bg-ink text-fg font-mono">
+      <header className="border-b border-line px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] flex items-center justify-between">
+        <span className="text-fg">//</span>
+        <span>THE FULL LINEUP</span>
+        <span>INDEX</span>
+      </header>
+      <div className="top-strip" />
+
+      <section className="border-b border-line px-6 py-10">
+        <h1 className="font-display text-5xl md:text-6xl uppercase tracking-[-0.03em] leading-[0.9] mb-4">ALL SKILLS</h1>
+        <p className="font-mono text-sm normal-case text-fg/70 max-w-3xl">
+          Start wherever you are in your process. Each page shows when to use it, what it does, and what you get back — plus the exact source file.
+        </p>
+      </section>
+
+      {groups.map(group => (
+        <section key={group.title} className="border-b border-line">
+          <h2 className="px-6 py-4 font-mono text-xs uppercase tracking-[0.2em] text-fg/60 border-b border-line">
+            === {group.title} ===
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink">
+            {skills.filter(s => s.group === group.title).map(s => (
+              <Link key={s.id} to={`/skill/${s.id}`} className="group tile-hover motion-rise bg-ink p-6 block hover:z-10 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-md">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-mono text-xs uppercase tracking-[0.15em] text-fg">{s.group}</span>
+                  <span className="font-mono text-xs text-fg/60">{`[ ${String(skills.findIndex(x => x.id === s.id) + 1).padStart(2, '0')} ]`}</span>
+                </div>
+                <h3 className="font-display text-xl uppercase leading-[0.95] tracking-[-0.01em] mb-3 group-hover:text-fg">{s.name}</h3>
+                <p className="font-mono text-sm normal-case text-fg/70 leading-relaxed">{s.desc}</p>
+                <div className="mt-6 font-mono text-xs uppercase tracking-[0.15em] text-fg/60">[ VIEW SKILL ]</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  )
+}

@@ -1,0 +1,22 @@
+{
+  "name": "antigravity-master-suite",
+  "version": "1.0.0",
+  "description": "All In One Antigravity Suite & GUI Log Auditor for NexusFlow YouTube Automation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "cli": "node cli.js",
+    "launch": "node launch.js"
+  },
+  "keywords": [
+    "nexusflow",
+    "antigravity",
+    "youtube",
+    "shorts",
+    "mcp",
+    "automation",
+    "log-auditor"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}

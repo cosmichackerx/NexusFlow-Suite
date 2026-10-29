@@ -1,0 +1,30 @@
+{
+  "name": "youtube-with-antigravity",
+  "version": "1.0.0",
+  "description": "Enterprise-grade YouTube Creator Suite & NexusFlow Automated Publishing System for Google Antigravity",
+  "main": "cli.js",
+  "bin": {
+    "youtube-antigravity": "cli.js"
+  },
+  "scripts": {
+    "start": "node cli.js status",
+    "status": "node cli.js status",
+    "scan": "node cli.js scan",
+    "probe": "node cli.js probe",
+    "pipeline": "node pipeline.js",
+    "install-skill": "powershell -ExecutionPolicy Bypass -File install.ps1",
+    "mcp": "node mcp/server.js"
+  },
+  "keywords": [
+    "antigravity",
+    "youtube",
+    "nexusflow",
+    "automation",
+    "creator-suite",
+    "mcp",
+    "playwright"
+  ],
+  "author": "Arsalan / NexusFlow Team",
+  "license": "MIT",
+  "type": "commonjs"
+}

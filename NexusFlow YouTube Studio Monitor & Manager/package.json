@@ -1,0 +1,38 @@
+{
+  "name": "nexusflow-youtube-studio-monitor-manager",
+  "version": "1.0.0",
+  "description": "Comprehensive YouTube Studio Monitoring, Real-Time Analytics & Channel Operations Suite for NexusFlow & Antigravity",
+  "main": "cli.js",
+  "bin": {
+    "studio-manager": "./cli.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dashboard": "node server.js",
+    "status": "node cli.js status",
+    "monitor": "node cli.js monitor",
+    "sync": "node cli.js sync",
+    "moderate": "node cli.js moderate",
+    "audit": "node cli.js audit",
+    "earn": "node cli.js earn",
+    "content": "node cli.js content",
+    "mcp": "node mcp/server.js",
+    "install-skill": "powershell -ExecutionPolicy Bypass -File install.ps1"
+  },
+  "keywords": [
+    "youtube",
+    "youtube-studio",
+    "studio-monitor",
+    "channel-management",
+    "analytics",
+    "bones-of-empires",
+    "retention-monitoring",
+    "nexusflow",
+    "antigravity",
+    "mcp",
+    "automation"
+  ],
+  "author": "NexusFlow Team & Antigravity AI",
+  "license": "MIT",
+  "type": "commonjs"
+}

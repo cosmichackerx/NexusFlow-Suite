@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusFlow YouTube Studio Monitor & Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="#FF0000">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h2>Studio Manager</h2>
+          <span class="badge-nexus">NexusFlow 2.0</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+          <span class="nav-icon">📊</span> Dashboard
+        </a>
+        <a href="#content" class="nav-item" data-tab="content">
+          <span class="nav-icon">🎬</span> Content & Videos
+        </a>
+        <a href="#analytics" class="nav-item" data-tab="analytics">
+          <span class="nav-icon">📈</span> Analytics & APV
+        </a>
+        <a href="#community" class="nav-item" data-tab="community">
+          <span class="nav-icon">💬</span> Comments & Community
+        </a>
+        <a href="#monetization" class="nav-item" data-tab="monetization">
+          <span class="nav-icon">💰</span> Earn & YPP Tracker
+        </a>
+        <a href="#nexusflow" class="nav-item" data-tab="nexusflow">
+          <span class="nav-icon">⚡</span> NexusFlow Pipeline
+        </a>
+      </nav>
+
+      <div class="channel-profile-card">
+        <div class="avatar-wrap">
+          <div class="skeleton-avatar">💀</div>
+          <span class="live-dot"></span>
+        </div>
+        <div class="profile-meta">
+          <div class="channel-title">Bones of Empires</div>
+          <div class="channel-handle">@BonesOfEmpires</div>
+          <div class="channel-status">Verified Studio Active</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Navbar -->
+      <header class="top-header">
+        <div class="header-left">
+          <h1>Channel Dashboard & Studio Command Center</h1>
+          <p class="subtitle">Real-time monitoring and autonomous operational management for YouTube Studio</p>
+        </div>
+        <div class="header-actions">
+          <button id="btn-sync" class="btn btn-secondary">
+            <span class="icon">🔄</span> Sync NexusFlow
+          </button>
+          <a href="https://studio.youtube.com/channel/UCZXJSiKIw60aaUVBJv1ucCQ" target="_blank" class="btn btn-primary">
+            <span class="icon">↗</span> Open YouTube Studio
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard View -->
+      <section id="view-dashboard" class="tab-view active">
+        <!-- Metric Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Current Subscribers</span>
+              <span class="stat-badge positive">+6 last 28d</span>
+            </div>
+            <div class="stat-value" id="val-subscribers">6</div>
+            <div class="stat-subtext">100% Organic Growth</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Views (Last 28 Days)</span>
+              <span class="stat-badge highlight">3.2K</span>
+            </div>
+            <div class="stat-value" id="val-views">3,200</div>
+            <div class="stat-subtext">Surging with Short browse feeds</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Watch Time (Hours)</span>
+              <span class="stat-badge">28 Days</span>
+            </div>
+            <div class="stat-value" id="val-watchtime">13.7 hrs</div>
+            <div class="stat-subtext">Avg 50-68% retention on Shorts</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Channel Health</span>
+              <span class="stat-badge clear">100% Clear</span>
+            </div>
+            <div class="stat-value green">0 Strikes</div>
+            <div class="stat-subtext">Zero Copyright or Guideline Flags</div>
+          </div>
+        </div>
+
+        <!-- Highlight Grid -->
+        <div class="dual-panel-grid">
+          <!-- Latest Short Performance -->
+          <div class="panel-card latest-short-card">
+            <div class="panel-header">
+              <div class="title-wrap">
+                <span class="badge-tag">LATEST SHORT PERFORMANCE</span>
+                <h3 id="latest-short-title">The Rupee Is Almost 500 Years Old 🪙 #shorts</h3>
+                <span class="time-ago" id="latest-short-time">First 3 hours 7 minutes</span>
+              </div>
+            </div>
+            <div class="latest-metrics-row">
+              <div class="metric-pill">
+                <span class="m-label">Ranking by views</span>
+                <span class="m-val" id="latest-short-rank">6 of 10</span>
+              </div>
+              <div class="metric-pill">
+                <span class="m-label">Views</span>
+                <span class="m-val" id="latest-short-views">31</span>
+              </div>
+              <div class="metric-pill highlight">
+                <span class="m-label">Average % Viewed (APV)</span>
+                <span class="m-val" id="latest-short-apv">50.6%</span>
+              </div>
+              <div class="metric-pill">
+                <span class="m-label">Likes</span>
+                <span class="m-val" id="latest-short-likes">0</span>
+              </div>
+            </div>
+            <div class="retention-diagnostic">
+              <div class="diag-header">
+                <strong>🤖 Studio Retention Analysis:</strong>
+              </div>
+              <p id="latest-short-verdict">
+                Holding steady at 50.6% retention. To breach the 70%+ viral threshold, amplify the sound design and add dynamic camera snaps in the first 2 seconds.
+              </p>
+            </div>
+          </div>
+
+          <!-- Top Content (Last 48 Hours) -->
+          <div class="panel-card top-content-card">
+            <div class="panel-header">
+              <span class="badge-tag cyan">REAL-TIME VELOCITY</span>
+              <h3>Top Content (Last 48 Hours)</h3>
+            </div>
+            <div class="top-content-list" id="top-content-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Published Content Overview -->
+        <div class="panel-card full-width">
+          <div class="panel-header space-between">
+            <div>
+              <h3>Published Videos & Shorts Catalog</h3>
+              <p class="section-desc">Manage Studio metadata, view counts, audience interaction, and visibility</p>
+            </div>
+            <div class="table-actions">
+              <button class="btn btn-small" id="btn-refresh-table">↻ Refresh Table</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="studio-table">
+              <thead>
+                <tr>
+                  <th>Video Title</th>
+                  <th>Type</th>
+                  <th>Published</th>
+                  <th>Views</th>
+                  <th>Likes</th>
+                  <th>Comments</th>
+                  <th>Retention (APV)</th>
+                  <th>Visibility</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="videos-table-body">
+                <!-- Rendered via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Monetization View -->
+      <section id="view-monetization" class="tab-view">
+        <div class="panel-card full-width">
+          <div class="panel-header">
+            <h3>YouTube Partner Program (YPP) Monetization Tracker</h3>
+            <p class="section-desc">Track real-time progress toward 1,000 Subscribers & 4,000 Watch Hours (or 10M Short Views)</p>
+          </div>
+          <div class="ypp-container">
+            <div class="ypp-track-card">
+              <div class="ypp-header">
+                <span>Subscribers Goal (1,000)</span>
+                <strong id="ypp-subs-label">6 / 1,000 (0.6%)</strong>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="ypp-subs-bar" style="width: 0.6%;"></div>
+              </div>
+              <small>994 subscribers to unlock community funding & revenue share.</small>
+            </div>
+
+            <div class="ypp-track-card">
+              <div class="ypp-header">
+                <span>Public Watch Hours (4,000 hrs)</span>
+                <strong id="ypp-hours-label">13.7 / 4,000 hrs (0.34%)</strong>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="ypp-hours-bar" style="width: 0.34%;"></div>
+              </div>
+              <small>Accumulated across all public videos in the last 365 days.</small>
+            </div>
+
+            <div class="ypp-track-card">
+              <div class="ypp-header">
+                <span>Shorts Views (10M in 90 days)</span>
+                <strong id="ypp-shorts-label">3,200 / 10,000,000 (0.03%)</strong>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="ypp-shorts-bar" style="width: 0.03%;"></div>
+              </div>
+              <small>Shorts views scale exponentially once YouTube picks up the initial catalog.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community View -->
+      <section id="view-community" class="tab-view">
+        <div class="panel-card full-width">
+          <div class="panel-header">
+            <h3>Community Interaction & Comment Moderation</h3>
+            <p class="section-desc">Auto-heart comments, analyze sentiment, and draft responses in Marrow's persona</p>
+          </div>
+          <div id="community-content" class="community-box">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- NexusFlow Integration View -->
+      <section id="view-nexusflow" class="tab-view">
+        <div class="panel-card full-width">
+          <div class="panel-header">
+            <h3>NexusFlow Autonomous Architecture Integration</h3>
+            <p class="section-desc">How YouTube Studio Monitor communicates with the rest of the NexusFlow ecosystem</p>
+          </div>
+          <div class="ecosystem-cards-grid">
+            <div class="eco-card">
+              <h4>1. NexusFlow Core App</h4>
+              <p>Generates high-fidelity AI video scenes with automated Google Flow prompt rotation and FFmpeg stitching.</p>
+            </div>
+            <div class="eco-card">
+              <h4>2. NexusFlow YouTube Publisher</h4>
+              <p>Retention engineering, search & browse SEO metadata packages, and multi-agent coordination.</p>
+            </div>
+            <div class="eco-card">
+              <h4>3. NexusFlow YouTube Uploader</h4>
+              <p>Playwright-powered browser automation that safely queues and uploads videos directly to YouTube Studio.</p>
+            </div>
+            <div class="eco-card">
+              <h4>4. YouTube Channel History & Ledger</h4>
+              <p>Living ledger keeping strict continuity of character "Marrow", prompt history, and video catalogs.</p>
+            </div>
+            <div class="eco-card highlight-border">
+              <h4>5. YouTube Studio Monitor & Manager (Active)</h4>
+              <p>Monitors 48h velocity, retention curves (APV), subscriber conversions, and executes Studio moderation.</p>
+            </div>
+            <div class="eco-card">
+              <h4>6. YouTube SEO & Trends</h4>
+              <p>Reads winning topics from Studio Monitor to instantly synthesize the next viral script concepts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "googleDrive": {
+    "folderId": "10y_1F0F0Hlm5yaMQSJ1mGrlJ_ttnMOTG",
+    "folderName": "Bones of Empires",
+    "webUrl": "https://drive.google.com/drive/u/0/folders/10y_1F0F0Hlm5yaMQSJ1mGrlJ_ttnMOTG",
+    "homeUrl": "https://drive.google.com/drive/u/0/home",
+    "owner": "me",
+    "status": "CONFIGURED_AND_STAGED",
+    "lastSyncCheck": "2026-10-26T23:45:00.000Z"
+  },
+  "channel": {
+    "name": "Bones of Empires",
+    "handle": "@BonesOfEmpires",
+    "channelId": "UCZXJSiKIw60aaUVBJv1ucCQ",
+    "studioUrl": "https://studio.youtube.com/channel/UCZXJSiKIw60aaUVBJv1ucCQ"
+  },
+  "trackedFiles": {
+    "channel-plan.md": {
+      "localPath": "data/channel-plan.md",
+      "driveName": "channel-plan.md",
+      "status": "READY_FOR_DRIVE",
+      "type": "document"
+    },
+    "PROGRESS.md": {
+      "localPath": "data/PROGRESS.md",
+      "driveName": "PROGRESS.md",
+      "status": "READY_FOR_DRIVE",
+      "type": "document"
+    },
+    "shorts-metadata.md": {
+      "localPath": "data/shorts-metadata.md",
+      "driveName": "shorts-metadata.md",
+      "status": "READY_FOR_DRIVE",
+      "type": "document"
+    }
+  },
+  "finishedShorts": [
+    {
+      "episode": "EP 01",
+      "title": "The Archimedes Vault",
+      "canonicalFilename": "BOE_EP01_Alexandria_The_Archimedes_Vault_9x16.mp4",
+      "sourcePath": "C:\\Google Flow Customized\\Result\\Combined_Video_Full.mp4",
+      "stagedPath": "Finished Shorts\\BOE_EP01_Alexandria_The_Archimedes_Vault_9x16.mp4",
+      "fileSizeBytes": 16976089,
+      "aspectRatio": "9:16",
+      "durationSeconds": 24,
+      "staged": true,
+      "driveUploadStatus": "PENDING"
+    }
+  ]
+}

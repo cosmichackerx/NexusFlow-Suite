@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusFlow</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="icon.png" alt="Logo" style="width: 28px; height: 28px;">
+        <h1 style="margin-right: 0;">NexusFlow</h1>
+      </div>
+    <div class="header-right">
+      <button id="refreshBtn" class="header-badge interactive" title="Refresh prompts and sync credits">⟳ Refresh</button>
+      <button id="restartBtn" class="header-badge interactive" title="Restart the App">↻ Restart</button>
+      <button id="settingsBtn" class="header-badge interactive" title="Settings">⚙ Settings</button>
+      <div id="automationTimer" class="header-badge" style="display: none; font-family: monospace;">00:00:00</div>
+      <div class="window-controls">
+        <button id="minBtn" class="win-btn" title="Minimize">─</button>
+        <button id="maxBtn" class="win-btn" title="Maximize">□</button>
+        <button id="closeBtn" class="win-btn close-btn" title="Close">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="panel controls-panel">
+      <div style="display: flex; align-items: center; justify-content: flex-start; margin-bottom: 15px;">
+        <h2 style="margin-bottom: 0; white-space: nowrap; font-size: 1.2rem; margin-right: 10px;">Prompt from File</h2>
+        <button id="editPromptFileBtn" style="background: none; border: none; cursor: pointer; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; padding: 5px; border-radius: 4px; transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='var(--text-primary)'" onmouseout="this.style.background='none'; this.style.color='var(--text-secondary)'" title="Open Prompt File">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+        </button>
+      </div>
+      <div id="promptDisplay" class="prompt-display">
+        Loading prompt...
+      </div>
+      
+      <!-- Status & Stats Section -->
+      <div class="prompt-stats-container">
+        <div class="stats-top-grid">
+          <div class="prompt-stat-card">
+            <span class="stat-label">Status</span>
+            <div id="statusBadge" class="status-badge idle" title="System Status">Idle</div>
+          </div>
+          <div class="prompt-stat-card">
+            <span class="stat-label">Total Credits</span>
+            <span class="stat-value" id="creditsDisplay" style="color: #10b981;">0</span>
+          </div>
+        </div>
+
+        <div class="prompt-stats-grid">
+          <div class="prompt-stat-card">
+            <span class="stat-label">Total Prompts</span>
+            <span class="stat-value" id="statTotalPrompts">0</span>
+          </div>
+          <div class="prompt-stat-card active-stat">
+            <span class="stat-label">In Progress</span>
+            <span class="stat-value" id="statCurrentPrompt">—</span>
+          </div>
+          <div class="prompt-stat-card">
+            <span class="stat-label">Remaining</span>
+            <span class="stat-value" id="statRemainingPrompts">0</span>
+          </div>
+        </div>
+        <div class="prompt-progress-track" title="Batch Progress">
+          <div class="prompt-progress-bar" id="promptProgressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+      
+      <div id="homeAccountDisplay" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 15px; margin-top: 4px; min-height: 18px;">Not logged in</div>
+
+      <button id="startBtn" class="btn-primary">Start Automation</button>
+      <button id="loginBtn" class="btn-secondary">Open Browser for Login</button>
+    </div>
+
+    <div class="panel logs-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 style="margin: 0;">Execution Logs</h2>
+        <button id="copyLogsBtn" class="header-badge interactive" style="font-size: 11px; padding: 4px 8px; border: none; cursor: pointer;">Copy Logs</button>
+      </div>
+      <div id="logContainer" class="log-container">
+        <!-- Logs will appear here -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Settings</div>
+        <button class="modal-close" id="closeSettingsBtn">✕</button>
+      </div>
+      <div class="modal-body" id="settingsBody">
+        <div class="setting-item" style="flex-direction: column; align-items: stretch; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <label style="font-weight: bold; margin: 0;">Google Accounts</label>
+            <div style="display: flex; gap: 6px;">
+              <button id="syncAccountBtn" class="header-badge interactive" style="font-size: 11px; padding: 4px 8px; border: none; cursor: pointer;" title="Sync selected account credits">⟳ Sync</button>
+              <button id="addAccountBtn" class="header-badge interactive" style="font-size: 11px; padding: 4px 8px; border: none; cursor: pointer;" title="Log into another Google Account">+ Add Account</button>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center; width: 100%;">
+            <select id="accountSelect" style="flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; font-family: inherit; font-size: 13px; cursor: pointer;">
+              <option value="">No accounts detected (click Refresh or Add Account)</option>
+            </select>
+          </div>
+          <div id="userEmailDisplay" style="display: none;"></div>
+          <div id="accountStatusDetail" style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">
+            Switching accounts in the dropdown will automatically sync live credits and tier.
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 4px;">
+            <input type="checkbox" id="autoSwitchAccountsCheckbox" style="width: 15px; height: 15px; cursor: pointer;" checked />
+            <label for="autoSwitchAccountsCheckbox" style="font-size: 12.5px; cursor: pointer; color: var(--text-primary); user-select: none;">
+              Auto-switch account when credits run low (&lt; 10 credits)
+            </label>
+          </div>
+        </div>
+        <div class="setting-item">
+          <label for="pacingInput">Cooldown (seconds)</label>
+          <div style="display: flex; align-items: center; gap: 5px;">
+            <input type="number" id="pacingInput" value="10" style="background: var(--surface-light); border: 1px solid var(--border-color); color: var(--text-color); padding: 8px; border-radius: 4px; width: 80px;" />
+          </div>
+        </div>
+        <div class="setting-item" style="flex-direction: column; align-items: stretch; gap: 10px;">
+          <label>Paths Configuration</label>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 10px;">
+            <label style="flex: 1; font-size: 13px; color: var(--text-secondary);">Prompt File:</label>
+            <input type="text" id="promptPathInput" style="flex: 2; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; font-size: 12px; margin-right: 5px;" readonly />
+            <button id="browsePromptBtn" class="btn-secondary" style="margin: 0; width: auto; padding: 6px 12px; font-size: 12px;">Browse</button>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 10px;">
+            <label style="flex: 1; font-size: 13px; color: var(--text-secondary);">Output Folder:</label>
+            <input type="text" id="outputPathInput" style="flex: 2; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; font-size: 12px; margin-right: 5px;" readonly />
+            <button id="browseOutputBtn" class="btn-secondary" style="margin: 0; width: auto; padding: 6px 12px; font-size: 12px;">Browse</button>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 10px;">
+            <label style="flex: 1; font-size: 13px; color: var(--text-secondary);">Result Folder:</label>
+            <input type="text" id="resultPathInput" style="flex: 2; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; font-size: 12px; margin-right: 5px;" readonly />
+            <button id="browseResultBtn" class="btn-secondary" style="margin: 0; width: auto; padding: 6px 12px; font-size: 12px;">Browse</button>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 10px;">
+            <label style="flex: 1; font-size: 13px; color: var(--text-secondary);">Frames Folder:</label>
+            <input type="text" id="framesPathInput" style="flex: 2; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 6px; border-radius: 4px; font-size: 12px; margin-right: 5px;" readonly />
+            <button id="browseFramesBtn" class="btn-secondary" style="margin: 0; width: auto; padding: 6px 12px; font-size: 12px;">Browse</button>
+          </div>
+        </div>
+        <div class="setting-item" style="flex-direction: column; align-items: flex-start; gap: 10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; margin-top: 5px;">
+          <label style="display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 5px; gap: 10px;">
+  <span style="font-weight: bold; white-space: nowrap;">Credit Consumption by Duration</span>
+  <button id="editCreditsBtn" style="background: none; border: none; cursor: pointer; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; padding: 5px; border-radius: 4px; transition: background 0.2s, color 0.2s; margin-left: auto;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='var(--text-primary)'" onmouseout="this.style.background='none'; this.style.color='var(--text-secondary)'" title="Edit Costs">
+  <svg id="editIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+  </button>
+</label>
+          <table style="width: 100%; text-align: left; border-collapse: collapse; font-size: 13px; color: var(--text-secondary); background: rgba(0,0,0,0.2); border-radius: 6px; overflow: hidden;">
+  <thead>
+    <tr style="background: rgba(255,255,255,0.05);">
+      <th style="padding: 10px; border-bottom: 1px solid var(--border-color);" rowspan="2">Model</th>
+      <th style="padding: 5px 10px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);" colspan="2">Duration</th>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color); background: rgba(255,255,255,0.05);">
+      
+  
+
+      
+  <th style="padding: 10px;">
+    8s
+    
+  </th>
+
+      
+  <th style="padding: 10px;">
+    10s
+    
+  </th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <td style="padding: 10px;">Omni Flash</td>
+    
+    
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="25" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="30" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+  </tr>
+  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <td style="padding: 10px;">Veo 3.1 - Lite</td>
+    
+    
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="10" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="-" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+  </tr>
+  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <td style="padding: 10px;">Veo 3.1 - Fast</td>
+    
+    
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="20" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="-" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+  </tr>
+  <tr>
+    <td style="padding: 10px;">Veo 3.1 - Quality</td>
+    
+    
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="100" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+    <td style="padding: 10px; color: var(--text-primary);"><input type="text" class="credit-input" readonly value="-" style="background: transparent; border: 1px solid transparent; color: inherit; width: 30px; font-family: inherit; font-size: inherit; text-align: left; padding: 2px;"></td>
+  </tr>
+</tbody>
+</table>
+        </div>
+          <div class="setting-item" style="flex-direction: column; align-items: stretch; gap: 10px;">
+          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; width: max-content;">
+            <input type="checkbox" id="useConfigJson" style="width: 16px; height: 16px; cursor: pointer;" />
+            Apply configurations.json
+          </label>
+          <div id="configOptionsContainer" style="display: flex; flex-direction: column; gap: 10px; padding-left: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="configConfirm">Confirm Before Generating:</label>
+              <select id="configConfirm" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; width: 200px; font-family: inherit;">
+                <option value="Always">Always</option>
+              </select>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="configAspectRatio">Aspect Ratio:</label>
+              <select id="configAspectRatio" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; width: 200px; font-family: inherit;">
+                <option value="16:9">16:9</option>
+                <option value="9:16">9:16</option>
+              </select>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="configCount">Count:</label>
+              <select id="configCount" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; width: 200px; font-family: inherit;">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="configModel">Model:</label>
+              <select id="configModel" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; width: 200px; font-family: inherit;">
+                <option value="Omni Flash">Omni Flash</option>
+                <option value="Veo 3.1 - Lite">Veo 3.1 - Lite</option>
+                <option value="Veo 3.1 - Fast">Veo 3.1 - Fast</option>
+                <option value="Veo 3.1 - Quality">Veo 3.1 - Quality</option>
+              </select>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="configDuration">Duration (Prompt Only):</label>
+              <select id="configDuration" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px; border-radius: 4px; width: 200px; font-family: inherit;">
+                
+                <option value="8s" selected>8s</option>
+                <option value="10s">10s</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="setting-item" style="display: block;">
+          <button id="copyPromptBtn" class="btn-secondary">Copy AI Prompt Template</button>
+        </div>
+        <div class="setting-item" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+          <label style="display: flex; align-items: center; justify-content: flex-start; width: 100%; gap: 10px; margin-bottom: 5px;">
+              <span style="font-weight: bold; white-space: nowrap;">AI Prompt Template</span>
+              <button id="editTemplateBtn" style="background: none; border: none; cursor: pointer; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; padding: 5px; border-radius: 4px; transition: background 0.2s, color 0.2s; margin-left: auto;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='var(--text-primary)'" onmouseout="this.style.background='none'; this.style.color='var(--text-secondary)'" title="Edit Template">
+              <svg id="editTemplateIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              </button>
+            </label>
+            <textarea id="templateEditor" readonly style="width: 100%; height: 200px; background: transparent; border: 1px solid transparent; color: var(--text-primary); padding: 10px; border-radius: 4px; font-family: monospace; font-size: 13px; resize: vertical; opacity: 0.8;"></textarea>
+        </div>
+        
+        
+
+        <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+          <button id="saveSettingsBtn" class="btn-primary" style="width: auto; padding: 0.5rem 1.5rem;">Save Settings</button>
+        </div>
+      </div>
+      <div id="scrollIndicator" class="scroll-indicator">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "youtube-channel-history",
+  "version": "1.0.0",
+  "description": "Comprehensive YouTube Channel Memory, Video Metadata Ledger, Prompt Lineage, Production Chronicle & Analytics Suite for NexusFlow & Google Antigravity",
+  "author": "Antigravity AI & NexusFlow Team",
+  "main": "cli.js",
+  "skills": [
+    "./skills/youtube-channel-history"
+  ]
+}

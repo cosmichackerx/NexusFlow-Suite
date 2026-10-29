@@ -1,0 +1,29 @@
+{
+  "name": "youtube-creator-skills",
+  "displayName": "Antigravity YouTube Creator Skills",
+  "version": "1.0.0",
+  "description": "Native Google Antigravity YouTube Creator Suite featuring 11 specialized skills: YouTube Manager, Topic Scout, Review Grill, Video Kit, YouTube Shorts, Compose Video (HyperFrames), YouTube Thumbnail, Creator Voice, Social Repurpose, Fact Check, and YouTube Analytics.",
+  "skills": [
+    "compose-video",
+    "creator-voice",
+    "fact-check",
+    "review-grill",
+    "social-repurpose",
+    "topic-scout",
+    "video-kit",
+    "youtube-analytics",
+    "youtube-manager",
+    "youtube-shorts",
+    "youtube-thumbnail"
+  ],
+  "suggestedPrompts": [
+    "Set up a channel manager for this YouTube channel: https://youtube.com/@yourhandle",
+    "Use my channel memory and current YouTube evidence to find and rank five video opportunities",
+    "Interview me about my experience with this product and save a review brief",
+    "Research this topic, make a high-retention recording outline, and prepare the publishing package",
+    "Turn this video project into a self-contained YouTube Short and save the brief",
+    "Plan, design, and produce a high-CTR YouTube thumbnail mockup for this video",
+    "Audit all factual claims in this script with citations, corrections, and claim ledgers",
+    "Analyze supplied YouTube Studio metrics and recommend the top 3 actionable decisions"
+  ]
+}

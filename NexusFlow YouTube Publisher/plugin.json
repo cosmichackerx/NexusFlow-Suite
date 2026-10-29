@@ -1,0 +1,30 @@
+{
+  "name": "youtube-with-antigravity",
+  "displayName": "YouTube With Antigravity — Autonomous Creator & Publishing Suite",
+  "version": "1.0.0",
+  "description": "Comprehensive YouTube creator skill, retention engineering, AI video orchestration, and automated publishing system built natively for Google Antigravity & NexusFlow.",
+  "author": {
+    "name": "NexusFlow & Antigravity Community"
+  },
+  "keywords": [
+    "youtube",
+    "creator",
+    "retention",
+    "shorts",
+    "seo",
+    "nexusflow",
+    "antigravity",
+    "automation",
+    "publishing"
+  ],
+  "skills": [
+    "./skills/youtube"
+  ],
+  "suggestedPrompts": [
+    "/youtube audit my channel",
+    "/youtube ideate 10 video ideas for my niche",
+    "/youtube script a high-retention video",
+    "/youtube metadata generate package and queue upload",
+    "node cli.js pipeline"
+  ]
+}

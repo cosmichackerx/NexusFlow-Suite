@@ -1,0 +1,16 @@
+{
+  "confirmBeforeGenerating": "Always",
+  "videoGenerationDefault": {
+    "aspectRatio": "16:9",
+    "count": 1,
+    "model": "Omni Flash"
+  },
+  "availableOptions": {
+    "confirmBeforeGenerating": ["Always"],
+    "videoGeneration": {
+      "aspectRatio": ["16:9", "9:16"],
+      "count": [1, 2, 3, 4],
+      "model": ["Omni Flash", "Veo 3.1 - Lite", "Veo 3.1 - Fast", "Veo 3.1 - Quality"]
+    }
+  }
+}
